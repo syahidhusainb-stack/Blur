@@ -1,0 +1,470 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #050505;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #111;
+}
+
+#camera {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  background: #111;
+
+  transform: scaleX(-1);
+
+  transition:
+    filter .4s ease,
+    transform .3s ease;
+}
+
+#blurLayer {
+  position: absolute;
+  inset: -20px;
+
+  pointer-events: none;
+
+  backdrop-filter: blur(0px);
+
+  -webkit-backdrop-filter: blur(0px);
+
+  transition: backdrop-filter .4s ease;
+}
+
+.top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: white;
+
+  text-shadow:
+    0 2px 8px #000;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#dateText {
+  font-size: 13px;
+  opacity: .9;
+}
+
+.message {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 190px;
+
+  text-align: center;
+
+  color: white;
+
+  text-shadow:
+    0 2px 12px #000;
+}
+
+#titlePreview {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#namePreview {
+  margin-top: 8px;
+  font-size: 17px;
+}
+
+.music {
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  bottom: 135px;
+
+  width: min(90%, 420px);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: white;
+
+  background: #0007;
+
+  padding: 8px 12px;
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(10px);
+}
+
+.music button {
+  border: 0;
+
+  padding: 8px 13px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  color: #222;
+
+  font-weight: bold;
+}
+
+#musicName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 12px;
+}
+
+.controls {
+  position: absolute;
+
+  bottom: 55px;
+
+  left: 0;
+  right: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 35px;
+}
+
+.record {
+  width: 78px;
+  height: 78px;
+
+  border-radius: 50%;
+
+  border: 6px solid white;
+
+  background: transparent;
+
+  display: grid;
+  place-items: center;
+
+  box-shadow:
+    0 0 0 4px #0004;
+}
+
+.record span {
+  display: block;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  background: #ff4d75;
+
+  transition: .2s;
+}
+
+.record.active span {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.smallBtn {
+  width: 48px;
+  height: 48px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #0008;
+
+  color: white;
+
+  font-size: 20px;
+
+  backdrop-filter: blur(8px);
+}
+
+.tools {
+  position: absolute;
+
+  right: 18px;
+  bottom: 55px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.tools button {
+  border: 0;
+
+  border-radius: 20px;
+
+  padding: 9px 13px;
+
+  background: #0009;
+
+  color: white;
+
+  font-weight: bold;
+
+  backdrop-filter: blur(8px);
+}
+
+.panel {
+  position: absolute;
+
+  z-index: 20;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(90%, 380px);
+
+  padding: 25px;
+
+  border-radius: 25px;
+
+  background: #ffffffee;
+
+  box-shadow:
+    0 20px 70px #0008;
+}
+
+.panel h2 {
+  text-align: center;
+
+  font-family: Georgia, serif;
+}
+
+.panel label {
+  display: block;
+
+  margin:
+    13px 0 6px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+.panel input {
+  width: 100%;
+
+  border: 1px solid #ddd;
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  outline: none;
+}
+
+.primary {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 14px;
+
+  border: 0;
+
+  border-radius: 15px;
+
+  background: #ff5b84;
+
+  color: white;
+
+  font-weight: bold;
+
+  font-size: 16px;
+}
+
+.recording {
+  display: none;
+
+  position: absolute;
+
+  top: 70px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #000a;
+
+  color: white;
+
+  padding: 8px 15px;
+
+  border-radius: 20px;
+
+  font-weight: bold;
+}
+
+.recording.show {
+  display: block;
+}
+
+.dot {
+  display: inline-block;
+
+  width: 9px;
+  height: 9px;
+
+  margin-right: 6px;
+
+  border-radius: 50%;
+
+  background: red;
+
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: .2;
+  }
+}
+
+.resultPanel {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: #000d;
+}
+
+.resultPanel.show {
+  display: flex;
+}
+
+.resultBox {
+  width: min(95%, 650px);
+
+  max-height: 95vh;
+
+  overflow: auto;
+
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 18px;
+}
+
+.resultBox h2 {
+  text-align: center;
+
+  font-family: Georgia, serif;
+}
+
+#resultVideo {
+  display: block;
+
+  width: 100%;
+
+  max-height: 70vh;
+
+  background: #111;
+
+  border-radius: 15px;
+}
+
+.resultButtons {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.resultButtons button {
+  flex: 1;
+
+  padding: 13px;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  font-weight: bold;
+}
+
+#downloadBtn {
+  background: #ff5b84;
+  color: white;
+}
+
+#againBtn {
+  background: #eee;
+}
+
+@media(max-width:600px) {
+
+  .message {
+    bottom: 180px;
+  }
+
+  #titlePreview {
+    font-size: 25px;
+  }
+
+  .tools {
+    right: 10px;
+  }
+
+  .music {
+    bottom: 130px;
+  }
+
+}
