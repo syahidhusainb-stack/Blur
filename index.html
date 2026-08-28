@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>Love Camera ♡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <video id="camera" autoplay playsinline muted></video>
+
+  <div id="blurLayer"></div>
+
+  <div class="top">
+    <div class="brand">♡ LOVE CAMERA</div>
+    <div id="dateText"></div>
+  </div>
+
+  <div class="message">
+    <div id="titlePreview">Our Little Moments</div>
+    <div id="namePreview">♡ You & Me ♡</div>
+  </div>
+
+  <div class="music">
+    <button id="musicBtn">🎵 Pilih Lagu</button>
+    <input id="musicInput" type="file" accept="audio/*" hidden>
+    <span id="musicName">Belum ada lagu</span>
+  </div>
+
+  <div class="controls">
+
+    <button id="switchBtn" class="smallBtn">
+      🔄
+    </button>
+
+    <button id="recordBtn" class="record">
+      <span></span>
+    </button>
+
+    <button id="effectBtn" class="smallBtn">
+      ✨
+    </button>
+
+  </div>
+
+  <div class="tools">
+
+    <button id="blurBtn">🌫️ Blur OFF</button>
+
+    <button id="textBtn">✍️ Teks</button>
+
+  </div>
+
+  <div id="setup" class="panel">
+
+    <h2>♡ Love Camera</h2>
+
+    <label>Nama kamu</label>
+    <input id="name1" placeholder="Nama kamu">
+
+    <label>Nama dia</label>
+    <input id="name2" placeholder="Nama dia">
+
+    <label>Judul</label>
+    <input id="title" value="Our Little Moments">
+
+    <button id="startBtn" class="primary">
+      📷 Aktifkan Kamera
+    </button>
+
+  </div>
+
+  <div id="recording" class="recording">
+    <span class="dot"></span>
+    REC <span id="timer">00:00</span>
+  </div>
+
+</div>
+
+
+<div id="resultPanel" class="resultPanel">
+
+  <div class="resultBox">
+
+    <h2>Video kamu ♡</h2>
+
+    <video id="resultVideo" controls playsinline></video>
+
+    <div class="resultButtons">
+
+      <button id="downloadBtn">
+        💾 Simpan Video
+      </button>
+
+      <button id="againBtn">
+        🔄 Rekam Lagi
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<audio id="music" loop></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
